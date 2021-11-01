@@ -2,7 +2,7 @@
     "name": "vs-keybindings",
     "displayName": "Visual Studio Keymap",
     "description": "Popular Visual Studio keybindings for VS Code.",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "publisher": "ms-vscode",
     "engines": {
         "vscode": "^1.22.0"
@@ -11,6 +11,7 @@
         "Keymaps"
     ],
     "keywords": [
+        "keybindings",
         "keymap"
     ],
     "repository": {
@@ -26,6 +27,11 @@
             {
                 "key": "ctrl+shift+b",
                 "command": "workbench.action.tasks.build"
+            },
+            {
+                "key": "shift+alt+oem_1",
+                "command": "editor.action.selectHighlights",
+                "when": "editorFocus"
             },
             {
                 "key": "ctrl+b",
@@ -46,8 +52,45 @@
                 "when": "inDebugMode"
             },
             {
+                "key": "alt+enter",
+                "command": "settings.action.editFocusedSetting",
+                "when": "inSettingsSearch"
+            },
+            {
+                "key": "ctrl+oem_period",
+                "command": "settings.action.editFocusedSetting",
+                "when": "inSettingsSearch"
+            },
+            {
+                "key": "alt+enter",
+                "command": "problems.action.showQuickFixes",
+                "when": "problemFocus"
+            },
+            {
+                "key": "ctrl+oem_period",
+                "command": "problems.action.showQuickFixes",
+                "when": "problemFocus"
+            },
+            {
+                "key": "alt+enter",
+                "command": "editor.action.quickFix",
+                "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "ctrl+oem_period",
+                "command": "editor.action.quickFix",
+                "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+            },
+        
+            {
                 "key": "ctrl+k ctrl+d",
-                "command": "editor.action.formatDocument"
+                "command": "editor.action.formatDocument",
+                "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+            },
+            {
+                "key": "ctrl+k ctrl+d",
+                "command": "editor.action.formatDocument.none",
+                "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
             },
             {
                 "key": "ctrl+k ctrl+x",
@@ -56,12 +99,12 @@
             {
                 "key": "ctrl+shift+l",
                 "command": "editor.action.deleteLines",
-                "when": "editorTextFocus && !editorReadonly"
+                "when": "textInputFocus && !editorReadonly"
             },
             {
                 "key": "ctrl+l",
                 "command": "editor.action.clipboardCutAction",
-                "when": "editorTextFocus && !editorReadonly"
+                "when": "textInputFocus && !editorReadonly"
             },
             {
                 "key": "ctrl+shift+g",
@@ -76,12 +119,12 @@
                 "command": "redo"
             },
             {
-                "key": "ctrl+w",
+                "key": "shift+alt+oem_plus",
                 "command": "editor.action.smartSelect.expand",
                 "when": "editorTextFocus"
             },
             {
-                "key": "shift+alt+.",
+                "key": "shift+alt+oem_period",
                 "command": "editor.action.addSelectionToNextFindMatch",
                 "when": "editorFocus"
             },
@@ -126,8 +169,13 @@
                 "command": "editor.action.toggleRenderWhitespace"
             },
             {
-                "key": "ctrl+k ctrl+m",
+                "key": "ctrl+m ctrl+o",
                 "command": "editor.foldAll",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "ctrl+m ctrl+l",
+                "command": "editor.unfoldAll",
                 "when": "editorTextFocus"
             },
             {
@@ -145,32 +193,32 @@
             {
                 "key": "shift+alt+down",
                 "command": "cursorColumnSelectDown",
-                "when": "editorTextFocus"
+                "when": "textInputFocus"
             },
             {
                 "key": "shift+alt+left",
                 "command": "cursorColumnSelectLeft",
-                "when": "editorTextFocus"
+                "when": "textInputFocus"
             },
             {
                 "key": "shift+alt+pagedown",
                 "command": "cursorColumnSelectPageDown",
-                "when": "editorTextFocus"
+                "when": "textInputFocus"
             },
             {
                 "key": "shift+alt+pageup",
                 "command": "cursorColumnSelectPageUp",
-                "when": "editorTextFocus"
+                "when": "textInputFocus"
             },
             {
                 "key": "shift+alt+right",
                 "command": "cursorColumnSelectRight",
-                "when": "editorTextFocus"
+                "when": "textInputFocus"
             },
             {
                 "key": "shift+alt+up",
                 "command": "cursorColumnSelectUp",
-                "when": "editorTextFocus"
+                "when": "textInputFocus"
             },
             {
                 "key": "shift+alt+enter",
@@ -258,8 +306,27 @@
                 "key": "ctrl+delete",
                 "command": "deleteWordStartRight",
                 "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "ctrl+shift+u",
+                "command": "editor.action.toUpperCase",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "ctrl+u",
+                "command": "editor.action.toLowerCase",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "ctrl+oem_6",
+                "command": "editor.action.jumpToBracket",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "ctrl+k ctrl+c",
+                "command": "editor.action.formatSelection",
+                "when": "editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
             }
         ]
-
     }
 }
